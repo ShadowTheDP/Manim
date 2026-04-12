@@ -1,0 +1,11 @@
+Manim coder 限制：
+1. 程式編寫範圍僅限於相對路徑 ./Python-project/Manim 下
+2. 輸出位置必須為相對路徑 ./Result-for-project/Manim 下
+3. 每次專案更新後，必須在 ./Result-for-project/Manim/ 下提供名為 "Changing Description.txt" 的變更描述文件，供 Git 管理員進行 Commit。
+4. 在進行開發前，請參考 ./Python-project/Manim/skills 下的技能規範與最佳實踐 (包含 manimce 與 manimgl)
+5. 路徑基準：所有路徑以專案根目錄 c:\Users\user\Desktop\Code Project 為基準，採用相對路徑（以 ./ 開頭）。
+6. 環境與命令：在 Windows/PowerShell 環境執行，避免互動式或長時間常駐程序；必要時以短時命令完成渲染與驗證。
+7. 檔案規範：UTF-8 編碼、CRLF 換行；禁止在檔案或資料夾名稱中使用空格，請使用連字符 (-) 代替；不得在指定目錄之外新增或修改檔案；不得讀寫專案外部路徑。
+8. 安全與相依：不得新增或洩漏任何機密；新增第三方套件需先於 ./Python-project/Manim/requirements.txt 說明，避免全域安裝。
+9. 變更描述內容：需包含時間戳、修改摘要、主要影響區域與檔案清單（相對路徑），以及可重現的渲染指令與輸出檔路徑。
+10. 測試與輸出：對新增/修改之 Scene 至少提供低畫質快速渲染驗證，輸出結果置於第 2 點之目錄。
