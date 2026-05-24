@@ -102,6 +102,7 @@ Current expectation:
 
 - `latex.exe` available
 - `dvisvgm.exe` available
+- `ffmpeg.exe` available
 - MiKTeX recommended on Windows
 - Ghostscript can be useful for some LaTeX or SVG-related edge cases
 
@@ -130,6 +131,9 @@ Check the environment:
 ```powershell
 python normal-math-formula/test_env.py
 ```
+
+This script is an offline dependency check. It verifies Python package imports
+and required external tools such as `latex`, `dvisvgm`, and `ffmpeg`.
 
 Verify minimal MathTex rendering:
 
@@ -233,7 +237,8 @@ Files inside `normal-math-formula/`:
 - `binomial-theorem.py`
   - Example scene that presents and expands the binomial theorem.
 - `test_env.py`
-  - Environment sanity-check script.
+  - Offline environment sanity-check script for Python packages and required
+    external render tools.
 - `tesr.py`
   - Minimal MathTex smoke-test scene used to verify LaTeX rendering works.
 - `media/`
@@ -259,9 +264,10 @@ targets.
 If rendering fails, check these in order:
 
 1. Is `.venv/` activated?
-2. Does `python normal-math-formula/test_env.py` run?
+2. Does `python normal-math-formula/test_env.py` report `manim`, `latex`,
+   `dvisvgm`, and `ffmpeg` as available?
 3. Does `manim normal-math-formula/tesr.py SimpleTex -pql` work?
-4. Are `latex.exe` and `dvisvgm.exe` available in `PATH`?
+4. Are `latex.exe`, `dvisvgm.exe`, and `ffmpeg.exe` available in `PATH`?
 5. If a render directory contains broken partial output, remove the relevant
    `partial_movie_files/<Scene>/` folder and rerun.
 

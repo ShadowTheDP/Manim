@@ -18,3 +18,11 @@ After each meaningful completed task, append:
   policy, LaTeX/MathTex troubleshooting, file roles, and the rule that small
   subprojects should keep local output and should not add their own README.
 - Ready to push: yes, after normal review of the staged repo diff.
+
+2026-05-24 19:48
+- Summary: Strengthened onboarding by turning the environment smoke test into a
+  real Manim/LaTeX tool check and aligning the README with that workflow.
+- Key files changed: `README.md`, `normal-math-formula/test_env.py`
+- Verification notes: The first README command now validates package imports
+  and required external tools offline before the MathTex render smoke test.
+- Ready to push: yes, after normal review and local smoke testing.
