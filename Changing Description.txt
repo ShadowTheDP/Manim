@@ -1,0 +1,20 @@
+Project: Manim
+
+This is the single official project change log.
+
+After each meaningful completed task, append:
+- date and time
+- short summary of the completed work
+- key files changed
+- verification notes
+- whether the work is ready to push
+
+2026-05-24 18:40
+- Summary: Merged the environment/setup notes into `README.md` and aligned the
+  repo with the new subproject-local output policy.
+- Key files changed: `README.md`, `VENV_GUIDE.md` (removed),
+  `注意事項.md` (removed)
+- Verification notes: Confirmed the README now covers venv setup, PowerShell
+  policy, LaTeX/MathTex troubleshooting, file roles, and the rule that small
+  subprojects should keep local output and should not add their own README.
+- Ready to push: yes, after normal review of the staged repo diff.
