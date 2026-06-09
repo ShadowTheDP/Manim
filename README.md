@@ -10,6 +10,19 @@ The highest priority here is a reliable Manim runtime environment so that a
 future human or AI agent can focus on scene and content production instead of
 rebuilding the toolchain from scratch.
 
+## Current Agent Handoff
+
+When an AI agent enters this repo, use this order:
+
+1. `README.md`
+2. `AGENTS.md`
+3. `docs/agent/current-state.md`
+4. `Changing Description.txt` only when historical render or environment detail
+   matters
+5. the active scene subproject under `projects/`
+
+This keeps stable environment rules separate from current work context.
+
 ## What "Correct Work" Means Here
 
 Human collaborators and AI agents should treat this repo as a video-authoring
@@ -129,7 +142,7 @@ changing scene content.
 Check the environment:
 
 ```powershell
-python normal-math-formula/test_env.py
+python projects/normal-math-formula/test_env.py
 ```
 
 This script is an offline dependency check. It verifies Python package imports
@@ -138,26 +151,26 @@ and required external tools such as `latex`, `dvisvgm`, and `ffmpeg`.
 Verify minimal MathTex rendering:
 
 ```powershell
-manim normal-math-formula/tesr.py SimpleTex -pql
+manim projects/normal-math-formula/tesr.py SimpleTex -pql
 ```
 
 Render a simple sample scene:
 
 ```powershell
-manim normal-math-formula/example.py BasicMathFormula -pql
+manim projects/normal-math-formula/example.py BasicMathFormula -pql
 ```
 
 Render the binomial theorem example:
 
 ```powershell
-manim normal-math-formula/binomial-theorem.py BinomialTheorem -pql
+manim projects/normal-math-formula/binomial-theorem.py BinomialTheorem -pql
 ```
 
 ## Inputs
 
 Typical inputs for this repo are:
 
-- Scene files under `normal-math-formula/`
+- Scene files under `projects/`
 - New animation subprojects in their own folders
 - Reusable AI-agent guidance under `skills/`
 
@@ -165,10 +178,11 @@ If you add a larger or more focused animation subproject, prefer a structure
 like:
 
 ```text
-project-name/
-  scenes.py
-  assets/
-  output/
+projects/
+  project-name/
+    scenes.py
+    assets/
+    output/
 ```
 
 Small subprojects should not get their own README. Keep their purpose obvious
@@ -185,17 +199,17 @@ subproject:
 
 - For small subprojects, put output inside that subproject.
 - For direct local experiments, Manim may also create local `media/` folders.
-- The root-level `output/` directory is now best treated as older shared output
-  from an earlier workflow, not the preferred default for new subprojects.
+- The root-level `legacy-output/` directory is now an archived shared output
+  zone from an earlier workflow, not the preferred default for new subprojects.
 
 Examples:
 
 ```text
-normal-math-formula/media/
-project-name/output/
+projects/normal-math-formula/media/
+projects/project-name/output/
 ```
 
-Legacy root-level output may still contain:
+The archived root-level legacy output may still contain:
 
 - `videos/` for rendered scene output
 - `images/` for exported still images or thumbnails
@@ -213,24 +227,30 @@ Top-level files and folders:
   - Git ignore rules for Python artifacts, output, and local editor files.
 - `README.md`
   - This project working guide and the single source of truth for workflow
-    rules.
+  rules.
+- `AGENTS.md`
+  - Short operational routing rules for AI agents in this repo.
 - `Changing Description.txt`
   - The single official project change log. Update it after completed work,
-    especially before pushing to GitHub.
+  especially before pushing to GitHub.
+- `docs/agent/current-state.md`
+  - Short current-status handoff file for active work context.
 - `requirements.txt`
   - Python dependencies for the Manim environment.
 - `.venv/`
   - Local virtual environment. Useful locally, not project source.
-- `normal-math-formula/`
+- `projects/`
+  - Active Manim scene subprojects.
+- `projects/normal-math-formula/`
   - Current example subproject for small Manim experiments and environment
     checks.
 - `skills/`
   - AI-agent support skills, references, templates, and examples.
-- `output/`
-  - Older shared render output from an earlier workflow. Not the preferred
+- `legacy-output/`
+  - Archived shared render output from an earlier workflow. Not the preferred
     default for new subprojects.
 
-Files inside `normal-math-formula/`:
+Files inside `projects/normal-math-formula/`:
 
 - `example.py`
   - Collection of basic Manim math and animation examples.
@@ -264,9 +284,9 @@ targets.
 If rendering fails, check these in order:
 
 1. Is `.venv/` activated?
-2. Does `python normal-math-formula/test_env.py` report `manim`, `latex`,
+2. Does `python projects/normal-math-formula/test_env.py` report `manim`, `latex`,
    `dvisvgm`, and `ffmpeg` as available?
-3. Does `manim normal-math-formula/tesr.py SimpleTex -pql` work?
+3. Does `manim projects/normal-math-formula/tesr.py SimpleTex -pql` work?
 4. Are `latex.exe`, `dvisvgm.exe`, and `ffmpeg.exe` available in `PATH`?
 5. If a render directory contains broken partial output, remove the relevant
    `partial_movie_files/<Scene>/` folder and rerun.
@@ -310,5 +330,5 @@ Before pushing to GitHub, check:
 
 ## Current Gaps
 
-- `normal-math-formula/tesr.py` uses a legacy filename and may deserve a later
-  rename if you want cleaner naming.
+- `projects/normal-math-formula/tesr.py` uses a legacy filename and may deserve
+  a later rename if you want cleaner naming.

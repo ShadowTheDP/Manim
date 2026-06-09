@@ -37,6 +37,7 @@ venv.bak/
 # Manim output
 media/
 output/
+legacy-output/
 Result-for-project/
 
 # OS files

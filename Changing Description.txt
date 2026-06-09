@@ -26,3 +26,16 @@ After each meaningful completed task, append:
 - Verification notes: The first README command now validates package imports
   and required external tools offline before the MathTex render smoke test.
 - Ready to push: yes, after normal review and local smoke testing.
+
+2026-06-09 23:58
+- Summary: Reorganized the repository so active scene work now lives under
+  `projects/`, while the old root-level render dump was renamed to
+  `legacy-output/`, and updated the repo docs plus agent handoff files to match
+  the new structure.
+- Key files changed: `README.md`, `AGENTS.md`, `docs/agent/current-state.md`,
+  `.gitignore`, `projects/normal-math-formula/`, `legacy-output/`
+- Verification notes: Confirmed the moved scene files exist under
+  `projects/normal-math-formula/`, the old root output is now
+  `legacy-output/`, and the main README commands now point at the new project
+  paths.
+- Ready to push: yes, after normal review of the staged repository diff.
