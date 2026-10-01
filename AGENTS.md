@@ -1,46 +1,37 @@
-# Manim AGENTS
+# Manim Agent Instructions
 
-## Read Order
+## Entry Order
 
 1. `README.md`
-2. `docs/agent/current-state.md`
-3. `Changing Description.txt` only when historical render or environment detail
-   matters
-4. The target scene subproject under `projects/`
-5. `skills/` only when the task is about reusable Manim guidance
+2. `MEMORY.md`
+3. `docs/agent/current-state.md`
+4. Relevant skill under `skills/`
+5. The selected project under `manim-video/`
 
-## Scope
+## Workflow
 
-- Stay inside `Project/Manim/`.
-- Treat this repository as a video-authoring workspace, not a generic Python
-  sandbox.
-- Prefer subproject-local outputs over repo-root output.
-
-## Default Ignore Paths
-
-- `.venv/`
-- `legacy-output/` unless the task is explicitly about legacy output cleanup
-- `**/__pycache__/`
-- rendered media not needed for the current task
-
-## Preferred Plugins
-
-- `Everything MCP` for file discovery
-- `QMD` for local documentation and handoff docs
-- `GitHub MCP` for repo history or remote review
-- `Context7` for Manim or Python-library docs
+- For a new video, ask the user for its episode/series name and requirements.
+- Create the project with the shared interpreter and the user's answers:
+  `.venv\Scripts\python.exe workflow.py new --name "..." --requirements "..."`.
+  The CLI also prompts for omitted values. Keep its brief, source, assets, and
+  all generated output inside `manim-video/<name>/`.
+- Use the shared root `.venv` for every Manim project.
+- The runnable `episode.py` must render the complete video when executed.
+- Support both LaTeX (`MathTex`, `Tex`) and Typst (`MathTypst`, `Typst`).
+- Read `manim-composer` for educational narrative planning and
+  `manimce-best-practices` for Community Edition implementation. Use
+  `typst-manim` for math syntax and mixed LaTeX/Typst guidance.
+- Use the project Git repository for source synchronization with
+  `https://github.com/ShadowTheDP/Manim`. Do not initialize nested repositories
+  under `manim-video/`.
+- Do not commit `.venv/` or generated `output/` media; `.gitignore` owns that
+  boundary.
+- Keep shared workflow code and handoff documents at the project root; video
+  sources, assets, and render outputs stay in the selected video folder.
 
 ## Validation
 
-Use the narrowest command that proves the change:
-
-- `python projects/normal-math-formula/test_env.py`
-- `manim projects/normal-math-formula/tesr.py SimpleTex -pql`
-- task-specific render commands from `README.md`
-
-## Structure Direction
-
-- Keep each animation effort in its own folder under `projects/`.
-- Treat `legacy-output/` as archived history and do not add new generated work
-  there.
-- Keep `skills/` as support material, not production scene output.
+- Environment and LaTeX/Typst render check:
+  `.venv\Scripts\python.exe workflow.py check`
+- Render a video by running its own entry file:
+  `.venv\Scripts\python.exe manim-video\<name>\episode.py --quality low`
