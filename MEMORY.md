@@ -50,3 +50,6 @@ Known working example:
 - FFmpeg is unnecessary for Manim 0.21 core rendering and common
   `Scene.add_sound()` audio muxing; add it for an external conversion pipeline,
   unsupported codecs, or tools that explicitly invoke the FFmpeg CLI.
+- When concatenating raw LaTeX strings, keep an explicit space or command
+  separator between fragments; otherwise `\\qquad` followed by `x` becomes the
+  invalid command `\\qquadx`.
