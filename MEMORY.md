@@ -12,6 +12,8 @@
   `check` verifies the shared math renderers.
 - Source is synchronized with `https://github.com/ShadowTheDP/Manim` on `main`.
 - Keep `.venv/` and generated episode `output/` directories out of Git.
+- Production episodes render at 1080p60 by default (`--quality high`); only
+  `episode-test` uses low quality.
 
 ## Canonical Commands
 
@@ -27,10 +29,10 @@ Check the shared runtime and both math renderers:
 .\.venv\Scripts\python.exe workflow.py check
 ```
 
-Render a video:
+Render a production video at 1080p60:
 
 ```powershell
-.\.venv\Scripts\python.exe "manim-video\<name>\episode.py" --quality low
+.\.venv\Scripts\python.exe "manim-video\<name>\episode.py"
 ```
 
 Known working example:

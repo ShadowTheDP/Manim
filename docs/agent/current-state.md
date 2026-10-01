@@ -25,6 +25,8 @@ entrypoint.
 
 - Python 3.13
 - Manim Community 0.21.0
+- Production episodes use `-qh` / 1080p60 by default; `episode-test` is the
+  only low-quality exception.
 - Typst 0.15.0
 - LaTeX is required for `MathTex`/`Tex`; Typst is available through `MathTypst`/`Typst`.
 - FFmpeg is optional for Manim 0.21 core rendering and common audio muxing;

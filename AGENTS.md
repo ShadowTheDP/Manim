@@ -17,6 +17,8 @@
   all generated output inside `manim-video/<name>/`.
 - Use the shared root `.venv` for every Manim project.
 - The runnable `episode.py` must render the complete video when executed.
+- Production episodes use 1080p60 by default (`--quality high` / `-qh`). The
+  `episode-test` folder is the only low-quality exception.
 - Support both LaTeX (`MathTex`, `Tex`) and Typst (`MathTypst`, `Typst`).
 - Read `manim-composer` for educational narrative planning and
   `manimce-best-practices` for Community Edition implementation. Use
@@ -34,4 +36,4 @@
 - Environment and LaTeX/Typst render check:
   `.venv\Scripts\python.exe workflow.py check`
 - Render a video by running its own entry file:
-  `.venv\Scripts\python.exe manim-video\<name>\episode.py --quality low`
+  `.venv\Scripts\python.exe manim-video\<name>\episode.py`

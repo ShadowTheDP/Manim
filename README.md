@@ -37,7 +37,8 @@ manim-video/<episode-or-series>/
   episode.py
 ```
 
-There is a working reference at `manim-video/episode-test/`. Run it directly:
+There is a low-quality working reference at `manim-video/episode-test/`. Run it
+directly:
 
 ```powershell
 .\.venv\Scripts\python.exe manim-video\episode-test\episode.py --quality low
@@ -49,15 +50,16 @@ skill for narrative planning and `manimce-best-practices` plus
 beside `episode.py` when needed. All render artifacts and intermediate files
 belong under that folder's `output/`.
 
-Run the file to render the complete episode:
+Run a production episode to render the complete video at 1080p60:
 
 ```powershell
-.\.venv\Scripts\python.exe "manim-video\<name>\episode.py" --quality low
+.\.venv\Scripts\python.exe "manim-video\<name>\episode.py"
 ```
 
-Use `medium`, `high`, or `4k` for higher quality. Add `--preview` to open the
-rendered video. Each episode uses the root `.venv`; do not create a separate
-virtual environment inside `manim-video/`.
+The default is `--quality high` (`-qh`, 1080p60). Use `--quality low` only for
+the test episode or quick debugging; use `medium` or `4k` only when explicitly
+needed. Add `--preview` to open the rendered video. Each episode uses the root
+`.venv`; do not create a separate virtual environment inside `manim-video/`.
 
 ## Environment
 
@@ -96,7 +98,8 @@ py -3.13 -m venv .venv
    and assets inside it.
 5. Read `skills/manim-composer/SKILL.md` when shaping an educational narrative.
    Read the relevant ManimCE and math guidance before implementation.
-6. Render by executing that folder's `episode.py` with the root `.venv`.
+6. Render production episodes by executing that folder's `episode.py` with the
+   root `.venv`; the default output is 1080p60. Use low quality only for tests.
 7. Keep every generated file inside that episode folder. Do not use a project
    Git repository or create per-video environments.
 

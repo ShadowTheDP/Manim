@@ -55,3 +55,18 @@ Manim-specific change history was retired as part of the reset.
   `.venv`, workflow files, current skills, and `manim-video/episode-test/`
   reference remain.
 - Ready to push: not applicable; Git is not part of the intended workflow.
+
+2026-10-01
+- Summary: Added the `gaussian-integral` production episode, visually deriving
+  the Gaussian integral by squaring it, switching to polar coordinates,
+  separating the angular and radial integrals, and taking the positive square
+  root.
+- Key files changed: `manim-video/gaussian-integral/brief.md` and
+  `manim-video/gaussian-integral/episode.py`.
+- Verification: Low-quality structure render passed; the production render
+  passed at `1920x1080`, `60 fps`, about `29.9` seconds. LaTeX and Typst
+  environment checks also passed.
+- Rule confirmed: Production episodes use 1080p60 by default; only
+  `manim-video/episode-test/` may use low quality.
+- Ready to push: yes; generated media remains local under the episode's
+  ignored `output/` directory.

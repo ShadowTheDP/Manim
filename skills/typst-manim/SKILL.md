@@ -45,7 +45,7 @@ generated output inside the selected `manim-video/<name>/` folder.
 1. Read the project brief and outline the narrative using `manim-composer` for
    educational videos.
 2. Implement the complete entrypoint in `manim-video/<name>/episode.py`.
-3. Run it with the root `.venv` at low quality, then raise quality for final
-   output. The entrypoint routes Manim's videos, vectors, and intermediates to
-   its local `output/` directory.
+3. Run production episodes with the root `.venv` at `--quality high` (1080p60).
+   Use low quality only for `episode-test` or debugging. The entrypoint routes
+   Manim's videos, vectors, and intermediates to its local `output/` directory.
 4. Run `python workflow.py check` if either formula renderer fails.

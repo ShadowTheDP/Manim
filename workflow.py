@@ -44,7 +44,7 @@ class Episode(Scene):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--quality", choices=QUALITY, default="low")
+    parser.add_argument("--quality", choices=QUALITY, default="high")
     parser.add_argument("--preview", action="store_true")
     args = parser.parse_args()
     command = [
@@ -85,7 +85,7 @@ def create_project(name: str | None, requirement: str | None) -> int:
     (project_dir / "episode.py").write_text(EPISODE_TEMPLATE, encoding="utf-8")
     print(f"Created: {project_dir}")
     print("Edit episode.py, then run it with the shared environment:")
-    print(f'  .venv\\Scripts\\python.exe "{project_dir / "episode.py"}" --quality low')
+    print(f'  .venv\\Scripts\\python.exe "{project_dir / "episode.py"}"')
     return 0
 
 
